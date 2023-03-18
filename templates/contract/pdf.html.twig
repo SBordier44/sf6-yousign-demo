@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTRAT DE LOCATION</title>
+</head>
+<body>
+<h1>CONTRAT DE LOCATION</h1>
+
+Entre les soussignés:
+<ul>
+    <li>Le propriétaire, SlyeDevLocation, ci-après dénommé "Le Propriétaire"</li>
+    <li>Le locataire, {{ contract.firstname }} {{ contract.lastname }}, ci-après dénommé "Le Locataire"</li>
+</ul>
+
+Il est convenu et arrété ce qui suit :
+<ul>
+    <li>1. Objet du contrat : Le Propriétaire loue au Locataire le logement, ci-après dénommé "Le Logement", du {{ contract.startAt|date('d/m/Y') }} au {{ contract.finishAt|date('d/m/Y') }}.</li>
+    <li>2. Loyer : Le locataire s'engage à régler au propriétaire un loyer mensuel de {{ contract.rentAmount|format_currency('EUR') }}.</li>
+    <li>3. Caution : Le locataire s'engage à déposer une caution de {{ contract.guaranteeAmount|format_currency('EUR') }}, payable lors de la signature de ce présent contrat.</li>
+    <li>4. Utilisation du logement : Le logement est loué à usage d'habitation uniquement. Le locataire s'engage à ne pas utiliser le logement à des fins commerciales ou professionnelles.</li>
+    <li>5. Entretien du logement : Le locataire s'engage à entretenir le logement en bon état de propreté et de réparation, et à restituer le logement en état similaire à celui de l'entrée, sauf usure normale.</li>
+    <li>6. Durée et renouvellement : Ce contrat prendra fin le {{ contract.finishAt|date('d/m/Y') }}. Il pourra être renouvelé par tacite reconduction, sauf dénonciation de l'une ou l'autre des parties par lettre recommandée avec accusé réception en respectant un préavis de trois mois.</li>
+</ul>
+</body>
+</html>

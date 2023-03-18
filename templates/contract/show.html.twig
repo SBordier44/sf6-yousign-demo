@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contract{% endblock %}
+
+{% block body %}
+    <h1>Contract</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ contract.id }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ contract.lastname }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ contract.firstname }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ contract.email }}</td>
+        </tr>
+        <tr>
+            <th>StartAt</th>
+            <td>{{ contract.startAt ? contract.startAt|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>FinishedAt</th>
+            <td>{{ contract.finishAt ? contract.finishAt|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>RentAmount</th>
+            <td>{{ contract.rentAmount }}</td>
+        </tr>
+        <tr>
+            <th>GuaranteeAmount</th>
+            <td>{{ contract.guaranteeAmount }}</td>
+        </tr>
+        <tr>
+            <th>YousignSignatureId</th>
+            <td>{{ contract.yousignSignatureId }}</td>
+        </tr>
+        <tr>
+            <th>YousignDocumentId</th>
+            <td>{{ contract.yousignDocumentId }}</td>
+        </tr>
+        <tr>
+            <th>YousignSignerId</th>
+            <td>{{ contract.yousignSignerId }}</td>
+        </tr>
+        <tr>
+            <th>OriginalPdfPath</th>
+            <td>{{ contract.originalPdfFilename }}</td>
+        </tr>
+        <tr>
+            <th>IsSigned</th>
+            <td>{{ contract.isSigned }}</td>
+        </tr>
+        <tr>
+            <th>CreatedAt</th>
+            <td>{{ contract.createdAt ? contract.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>UpdatedAt</th>
+            <td>{{ contract.updatedAt ? contract.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a role="button" href="{{ path('app_contract_signature', {id: contract.id}) }}">Send to signature</a>
+    <br>
+    <a href="{{ path('app_contract_index') }}">back to list</a>
+    <br>
+    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+    <br>
+    {{ include('contract/_delete_form.html.twig') }}
+{% endblock %}

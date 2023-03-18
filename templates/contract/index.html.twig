@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contract index{% endblock %}
+
+{% block body %}
+    <h1>Contract index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Lastname</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>StartAt</th>
+            <th>FinishAt</th>
+            <th>RentAmount</th>
+            <th>GuaranteeAmount</th>
+            <th>YousignSignatureId</th>
+            <th>YousignDocumentId</th>
+            <th>YousignSignerId</th>
+            <th>OriginalPdfFilename</th>
+            <th>IsSigned</th>
+            <th>CreatedAt</th>
+            <th>UpdatedAt</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contract in contracts %}
+            <tr>
+                <td>{{ contract.id }}</td>
+                <td>{{ contract.lastname }}</td>
+                <td>{{ contract.firstname }}</td>
+                <td>{{ contract.email }}</td>
+                <td>{{ contract.startAt ? contract.startAt|date('Y-m-d') : '' }}</td>
+                <td>{{ contract.finishAt ? contract.finishAt|date('Y-m-d') : '' }}</td>
+                <td>{{ contract.rentAmount }}</td>
+                <td>{{ contract.guaranteeAmount }}</td>
+                <td>{{ contract.yousignSignatureId }}</td>
+                <td>{{ contract.yousignDocumentId }}</td>
+                <td>{{ contract.yousignSignerId }}</td>
+                <td>{{ contract.originalPdfFilename }}</td>
+                <td>{{ contract.createdAt ? contract.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ contract.updatedAt ? contract.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ contract.isSigned }}</td>
+                <td>
+                    <a href="{{ path('app_contract_pdf', {id: contract.id}) }}">PDF</a>
+                    <a href="{{ path('app_contract_show', {'id': contract.id}) }}">show</a>
+                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contract_new') }}">Create new</a>
+{% endblock %}
