@@ -10,9 +10,9 @@ A sample application with Symfony 6 and Yousign Api integration
 
 
 ## Tech Stack
-- Symfony 6
-- PHP 8.2
-- PostgreSQL 15
+- Symfony 6.4
+- PHP 8.3
+- PostgreSQL 16
 - Docker with compose plugin
 
 
